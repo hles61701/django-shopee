@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input name="product_name" placeholder="請輸入商品名稱">
+    <input type="submit" value="查詢">
+</form>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>商品名稱</th>
+            <th>價格</th>
+            <th>出貨地</th>
+            <th>評價</th>
+            <th>已售出數量</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shopee in shopees %}
+        <tr>
+            <td>{{ shopee.title }}</td>
+            <td>{{ shopee.price}}</td>
+            <td>{{ shopee.loaction}}</td>
+            <td>{{ shopee.star}}</td>
+            <td>{{ shopee.hist_sold}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
