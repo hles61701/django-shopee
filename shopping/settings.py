@@ -26,7 +26,7 @@ SECRET_KEY = 'pgld_0m^ncq2y+=73r)#$f98178eaj*+9_k0i#(qn8mf-l9nq7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-shopee.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
