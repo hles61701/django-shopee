@@ -36,10 +36,34 @@ class Shopee(Website):
             for item in items:
                 title = item['name']
                 hist_sold = item['historical_sold']
-                price = str(item['price'])[:-5]
+                # price = str(item['price'])[:-5]
+
+                if item['price_before_discount'] == 0 :
+                    price_before = str(item['price'])[:-5]
+                    price = '-'
+                    # print('售價:', price)
+                else:
+                    price_min_before = item['price_before_discount']
+                    price_min = item['price_min']
+                    price_max_before = item['price_max_before_discount']
+                    price_max = item['price_max']
+                    if price_max == price_min:
+                        price_before = str(price_min_before)[:-5]
+                        price = str(price_min)[:-5]
+                        # print('售價:', str(price_min_before)[:-5])
+                        # print('特價:', str(price_min)[:-5])
+                    
+                    else:            
+                        price_min_range = str(price_min_before)[:-5] + '~' + str(price_max_before)[:-5]
+                        price_max_range = str(price_min)[:-5] + '~' + str(price_max)[:-5]
+                        price_before = price_min_range
+                        price = price_max_range  
+                        # print('售價:', price_min_range)
+                        # print('特價:', price_max_range)           
+                
                 loaction = item['shop_location']
                 star = round(item['item_rating']['rating_star'],1)    
-                result.append(dict(title=title, hist_sold=hist_sold, price=price, loaction=loaction, star=star))
+                result.append(dict(title=title, hist_sold=hist_sold, price_before=price_before ,price=price, loaction=loaction, star=star))
 
         return result
 

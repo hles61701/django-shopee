@@ -11,7 +11,8 @@
     <thead>
         <tr>
             <th>商品名稱</th>
-            <th>價格</th>
+            <th>售價</th>
+            <th>*特價*</th>
             <th>出貨地</th>
             <th>評價</th>
             <th>已售出數量</th>
@@ -21,10 +22,11 @@
         {% for shopee in shopees %}
         <tr>
             <td>{{ shopee.title }}</td>
-            <td>{{ shopee.price}}</td>
-            <td>{{ shopee.loaction}}</td>
-            <td>{{ shopee.star}}</td>
-            <td>{{ shopee.hist_sold}}</td>
+            <td>NT${{ shopee.price_before }}</td>
+            <td>NT${{ shopee.price }}</td>
+            <td>{{ shopee.loaction }}</td>
+            <td>{{ shopee.star }}</td>
+            <td>{{ shopee.hist_sold }}</td>
         </tr>
         {% endfor %}
     </tbody>
