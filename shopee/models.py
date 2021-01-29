@@ -10,14 +10,13 @@ class Website(ABC):
     def __init__(self, product_name):
         self.product_name = product_name  
     
+    
     @abstractmethod
     def scrape(self): 
         pass
 
 class Shopee(Website):
-    # def __int__(self, product_name):
-    #     self.product_name = product_name
-
+  
     def scrape(self):
         result = []
 
