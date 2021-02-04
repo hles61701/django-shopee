@@ -35,6 +35,11 @@ class Shopee(Website):
             
             for item in items:
                 title = item['name']
+                shopid = item['shopid']
+                itemid = item['itemid']
+                titleWeb = title.replace(' ','-').replace('/','-')
+                link = 'https://shopee.tw/{titleWeb}-i.{shopid}.{itemid}'.format(titleWeb=titleWeb, shopid=shopid, itemid=itemid)
+                # link = 'https://shopee.tw/{titleWeb}-i.{shopid}.{itemid}'.format(titleWeb=titleWeb, shopid=shopid, itemid=itemid)
                 hist_sold = item['historical_sold']
                 # price = str(item['price'])[:-5]
 
@@ -63,7 +68,7 @@ class Shopee(Website):
                 
                 loaction = item['shop_location']
                 star = round(item['item_rating']['rating_star'],1)    
-                result.append(dict(title=title, hist_sold=hist_sold, price_before=price_before ,price=price, loaction=loaction, star=star))
+                result.append(dict(title=title, link=link, hist_sold=hist_sold, price_before=price_before ,price=price, loaction=loaction, star=star))
 
         return result
 

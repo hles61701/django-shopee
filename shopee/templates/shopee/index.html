@@ -21,7 +21,7 @@
     <tbody>
         {% for shopee in shopees %}
         <tr>
-            <td>{{ shopee.title }}</td>
+            <td><a href="{{ shopee.link }}" target="_blank">{{ shopee.title }}</a></td>
             <td>NT${{ shopee.price_before }}</td>
             <td>NT${{ shopee.price }}</td>
             <td>{{ shopee.loaction }}</td>
